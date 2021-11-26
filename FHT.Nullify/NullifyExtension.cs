@@ -18,7 +18,7 @@ namespace FHT.Nullify
         private static Func<T, T> makeConverter<T>()
         {
             var type = typeof(T);
-            var members = type.GetProperties(BindingFlags.Instance | BindingFlags.Public).Where(p => p.CanRead)
+            var members = type.GetProperties(BindingFlags.Instance | BindingFlags.Public).Where(p => p.CanRead && p.CanWrite)
                 .Select(p => new { Type = p.PropertyType, Name = p.Name })
                 .Concat(type.GetFields(BindingFlags.Instance | BindingFlags.Public)
                 .Select(f => new { Type = f.FieldType, Name = f.Name })
