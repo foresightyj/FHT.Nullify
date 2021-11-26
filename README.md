@@ -33,7 +33,7 @@ Originally, I have a set of services which are invoked directly. Recently we are
 
 This extension will help you convert a non-null objects with all public properties/fields equal to their default values back to null. Of course you have to explicity call the extension method, but it is much easier than checking all props/fields manually yourself.
 
-![demo](demo.png "demo")
+![demo](https://github.com/foresightyj/FHT.Nullify/blob/master/demo.png "demo")
 
 ```csharp
 void Main()
