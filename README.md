@@ -31,7 +31,7 @@ I developed this c# extension is to help mitigate a particular problem while usi
 
 Originally, I have a set of services which are invoked directly. Recently we are migrating them into a RPC services using protobuf-net.Grpc. Originally we return null to indicate something really is not there but now we get empty non-null objects like the one above.
 
-This util will help you convert a non-null objects with all public properties/fields equal to their default values back to null. Of course you have to explicity call the extension method, but it is much easier than checking all props/fields manually youself.
+This util will help you convert a non-null objects with all public properties/fields equal to their default values back to null. Of course you have to explicity call the extension method, but it is much easier than checking all props/fields manually yourself.
 
 ![demo](./demo.png "demo")
 
