@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+	  <Authors>foresightyj</Authors>
+	  <RepositoryUrl>https://github.com/foresightyj/FHT.Nullify</RepositoryUrl>
   </PropertyGroup>
 
 </Project>
