@@ -34,3 +34,23 @@ Originally, I have a set of services which are invoked directly. Recently we are
 This util will help you convert a non-null objects with all public properties/fields equal to their default values back to null. Of course you have to explicity call the extension method, but it is much easier than checking all props/fields manually youself.
 
 ![demo](./demo.png "demo")
+
+```csharp
+void Main()
+{
+	var p1 = new Person();
+	var p2 = new Person { Name = "Yuan Jian" };
+	var p3 = new Person { BirthYear = 1985 };
+	p1.NullifyIfAllDefault().Dump("p1"); // null
+	p2.NullifyIfAllDefault().Dump("p2"); // p2
+	p3.NullifyIfAllDefault().Dump("p3"); // p3
+}
+public class Person
+{
+	public int Age { get; set; }
+	public int BirthYear;
+	public string Name { get; set; }
+	public Person Spouse { get; set; }
+}
+
+```
