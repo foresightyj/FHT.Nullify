@@ -27,11 +27,11 @@ Not sure what your reaction will be if you receive an instance of a DTO from som
  }
 ```
 
-I developed this c# extension is to help mitigate a particular problem while using protobuf-net.Grpc. The detailed problem is described in this issue:	https://github.com/protobuf-net/protobuf-net.Grpc/issues/36. In a word, it is basically because prototobuf does not have a concept of null.
+I developed this c# extension is to help mitigate a particular problem while using protobuf-net.Grpc. The detailed problem is described in this issue:	https://github.com/protobuf-net/protobuf-net.Grpc/issues/36. In a word, it is basically because prototobuf does not have a concept of null. Grpc client will receive an object with default property values even if Grpc Server returns null.
 
-Originally, I have a set of services which are invoked directly. Recently we are migrating them into a RPC services using protobuf-net.Grpc. Originally we return null to indicate something really is not there but now we get empty non-null objects like the one above.
+Originally, I have a set of services which are invoked directly. Recently we are migrating them into a RPC services using protobuf-net.Grpc. We used to return null to indicate something really is not there but now we get empty non-null objects like the one above which breaks a lot of existing code.
 
-This util will help you convert a non-null objects with all public properties/fields equal to their default values back to null. Of course you have to explicity call the extension method, but it is much easier than checking all props/fields manually yourself.
+This extension will help you convert a non-null objects with all public properties/fields equal to their default values back to null. Of course you have to explicity call the extension method, but it is much easier than checking all props/fields manually yourself.
 
 ![demo](demo.png "demo")
 
