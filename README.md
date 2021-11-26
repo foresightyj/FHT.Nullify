@@ -38,19 +38,21 @@ This util will help you convert a non-null objects with all public properties/fi
 ```csharp
 void Main()
 {
+	Func<object, string, string> p = (o, tag) => JsonConvert.SerializeObject(o).Dump(tag);
 	var p1 = new Person();
 	var p2 = new Person { Name = "Yuan Jian" };
-	var p3 = new Person { BirthYear = 1985 };
-	p1.NullifyIfAllDefault().Dump("p1"); // null
-	p2.NullifyIfAllDefault().Dump("p2"); // p2
-	p3.NullifyIfAllDefault().Dump("p3"); // p3
+	p(p1.NullifyIfAllDefault(), "p1"); // null
+	p(p2.NullifyIfAllDefault(), "p2"); // {"Age":0,"Name":"Yuan Jian","Spouse":null}
+
+	object o1 = p1, o2 = p2;
+	p(o1.NullifyIfAllDefault(), "o1"); // null
+	p(o2.NullifyIfAllDefault(), "o2"); // {"Age":0,"Name":"Yuan Jian","Spouse":null}
 }
+
 public class Person
 {
 	public int Age { get; set; }
-	public int BirthYear;
 	public string Name { get; set; }
 	public Person Spouse { get; set; }
 }
-
 ```

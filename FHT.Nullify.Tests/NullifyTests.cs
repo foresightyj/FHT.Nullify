@@ -33,6 +33,7 @@ namespace FHT.Nullify.Tests
             var res = p.NullifyIfAllDefault();
             Assert.AreEqual(res, res, "at least one prop is not default, we get back original value");
         }
+
         [Test]
         public void NotAllPropsDefaultWillReturnOriginal_Enum()
         {
@@ -48,5 +49,23 @@ namespace FHT.Nullify.Tests
             var res = p.NullifyIfAllDefault();
             Assert.AreEqual(res, res, "at least one field is not default, we get back original value");
         }
+
+
+        [Test]
+        public void AllPropsDefaultWillReturnNull_obj()
+        {
+            object p = new Person();
+            var res = p.NullifyIfAllDefault();
+            Assert.AreEqual(res, null, "all properties are default, so we should get null");
+        }
+
+        [Test]
+        public void NotAllPropsDefaultWillReturnOriginal_obj()
+        {
+            object p = new Person { Name = "Yuan Jian" };
+            var res = p.NullifyIfAllDefault();
+            Assert.AreEqual(res, res, "at least one prop is not default, we get back original value");
+        }
+
     }
 }
