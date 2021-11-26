@@ -1,4 +1,4 @@
-Not sure what your reaction will be if you receive an instance of a class from some method call where all properties/fields are default values like 0 or null, like the one below which i encountered today:
+Not sure what your reaction will be if you receive an instance of a DTO from some method call where all properties/fields are default values like 0 or null, like the one below which i encountered today:
 
 ```json
 {
